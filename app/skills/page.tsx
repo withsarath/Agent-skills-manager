@@ -1,13 +1,14 @@
 
 import Link from "next/link";
-import { SKILLS } from "./SKILLS";
+import { getSkills, SKILLS } from "./SKILLS";
 
-export default function SkillsPage() {
-  const skills = SKILLS;
+export default async function SkillsPage() {
+  const skills = await getSkills()
 
   return (
     <section>
       <h1>Skills</h1>
+      <Link href="/skills/create">Create Skills</Link>
       <ul>
         {skills.map((skill) => (
           <li key={skill.id}>
